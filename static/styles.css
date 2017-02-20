@@ -1,0 +1,75 @@
+.main-title {
+    font-size: 2em;
+}
+
+.log-btn {
+    position: absolute;
+    right: 300px;
+}
+body {
+    font-family: sans-serif;
+    background-color: #ffffff;
+    width: 100%;
+}
+
+
+.header {
+    left:50%;
+    text-align: center;
+}
+
+.description {
+
+}
+
+.editdeletepane{}
+
+.flash {
+    background: #cee5F5;
+}
+
+.padding {
+    padding-left:5em
+}
+
+table {
+    border: 1px solid #dddddd;
+}
+
+.table-80 {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td {
+  padding: 10px;
+  line-height: 10px;
+}
+
+.category-cell {
+    width: 10px;
+}
+
+.navbar-customized {
+    padding-left: 130px;
+}
+
+.front-table-entry {
+    color: #ff6600;
+    font-weight: bold;
+    font-size: 1.2em;
+
+}
+
+.table-entry-follow {
+    color: #b3cccc;
+    font-weight: normal;
+}
+
+.form-edit {
+    margin: 0 auto;
+    width: 80%;
+}

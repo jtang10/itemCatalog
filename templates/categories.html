@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped table-hover table-80">
+                    <thead>
+                        <th><h2>Categories</h2></th>
+                        <th><h2>Latest Items</h2></th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="category-cell">
+                                {% for category in categories %}
+                                    <a class="front-table-entry" href = "{{url_for('showItems', category_id = category.id)}}">
+                                        <p>{{category.name}}</p>
+                                    </a>
+                                {% endfor %}
+                            </td>
+                            <td>
+                                {% for item in latestItems %}
+                                    <a class="front-table-entry" href = "{{url_for('showOneItem', category_id = item.category.id, item_id = item.id)}}">
+                                        <p>{{item.name}} <span class="table-entry-follow">({{item.category.name}})</span></p>
+                                    </a>
+                                {% endfor %}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

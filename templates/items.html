@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <ul>
+                        {% for message in messages %}
+                            <li> <strong> {{ message }} </strong> </li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1>{{ category.name }}</h1>
+                {% if items !=[] %}
+                    <a href = "{{url_for('newItem', category_id = category.id )}}">Create New Item</a>
+                    </br></br>
+                {% endif %}
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <th><h2>Item</h2></th>
+                        <th><h2>Options</h2></th>
+                        <th><h2>Description</h2></th>
+                    </thead>
+                    <tbody>
+                        {% for i in items %}
+                            <tr>
+                                <td class="category-cell">
+                                    <a href = "{{url_for('showOneItem', category_id = category.id, item_id = i.id)}}">
+                                        <p>{{i.name}}</p>
+                                    </a>
+                                </td>
+                                <td style="vertical-align: middle; width: 150px;">
+                                    <a class="btn btn-default" href='{{url_for('editItem', category_id = category.id, item_id=i.id ) }}' >Edit</a>
+                                    <a class="btn btn-default" href='{{url_for('deleteItem', category_id = category.id, item_id=i.id ) }}' >Delete</a>
+                                </td>
+                                <td>
+                                    <p>{{i.description}}</p>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
