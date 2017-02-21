@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+
     <div class="container">
         <div class="row">
                 <div class="col-md-12">
@@ -10,8 +11,6 @@
                                 <th>Name</th>
                                 <td>
                                     {{item.name}}
-                                    <a class="padding" href='{{url_for('editItem', category_id = item.category_id, item_id=item.id ) }}' >Edit | </a>
-                                    <a href='{{url_for('deleteItem', category_id = item.category_id, item_id=item.id ) }}' >Delete</a>
                                 </td>
                             </tr>
                             <tr>
