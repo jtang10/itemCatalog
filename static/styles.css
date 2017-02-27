@@ -4,6 +4,7 @@
 
 .log-btn {
     position: absolute;
+    top: 8px;
     right: 300px;
 }
 body {
@@ -17,12 +18,6 @@ body {
     left:50%;
     text-align: center;
 }
-
-.description {
-
-}
-
-.editdeletepane{}
 
 .flash {
     background: #cee5F5;

@@ -7,14 +7,24 @@ from sqlalchemy import create_engine
 
 Base = declarative_base()
 
+class Users(Base):
+    __tablename__ = 'users'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String(250), nullable=False)
+    email = Column(String(250), nullable=False)
+    picture = Column(String(250))
+
 
 class Category(Base):
     __tablename__ = 'category'
 
-    id = Column(Integer, primary_key = True)
+    id = Column(Integer, primary_key=True)
     name = Column(String(250), nullable = False)
     created = Column(DateTime, nullable=False, server_default=func.now())
     modified = Column(DateTime, nullable=False, server_default=func.now(), onupdate=func.current_timestamp())
+    user_id = Column(Integer, ForeignKey('users.id'))
+    user = relationship(Users)
 
     @property
     def serialize(self):
@@ -35,6 +45,8 @@ class Item(Base):
     category = relationship(Category)
     created = Column(DateTime, nullable=False, server_default=func.now())
     modified = Column(DateTime, nullable=False, server_default=func.now(), server_onupdate=func.now())
+    user_id = Column(Integer, ForeignKey('users.id'))
+    user = relationship(Users)
 
     @property
     def serialize(self):
